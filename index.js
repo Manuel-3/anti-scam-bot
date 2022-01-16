@@ -58,7 +58,12 @@ client.on('messageCreate', async message => {
 				ChatFilter.scam((await ChatFilter.expandMultipleUrls(urlsInMessage)).join())
 			) {
 				message.delete().catch(console.error);
-				message.member.roles.add(process.env.MUTED_ROLE).catch(console.error);
+				if (process.env.CLEAR_ROLES_ON_MUTE.toLowerCase() === 'true') {
+					message.member.roles.set([process.env.MUTED_ROLE]).catch(console.error);
+				}
+				else {
+					message.member.roles.add(process.env.MUTED_ROLE).catch(console.error);
+				}
 				message.channel.send(
 					'.　。　　　　•　　　ﾟ　　。　　.　　　　•\n'+
 					'　　　.　　　　　.　　　　　。　　。　.　　.\n'+

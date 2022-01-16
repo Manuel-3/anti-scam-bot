@@ -15,4 +15,5 @@ LOG_CHANNEL=log_channel_id
 MODERATOR_ROLES=moderator_role_id_1,moderator_role_id_2,...
 MUTED_ROLE=muted_role_id
 IDENTITY=name_or_something_to_identify_by
+CLEAR_ROLES_ON_MUTE=true|false
 ```
